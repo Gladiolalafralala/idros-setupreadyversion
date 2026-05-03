@@ -1,0 +1,61 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Incidents — authenticated users can read/write
+    match /incidents/{id} {
+      allow read, write: if request.auth != null;
+    }
+
+    // Ambulances — authenticated users can read/write
+    match /ambulances/{id} {
+      allow read, write: if request.auth != null;
+    }
+
+    // Operators / Personnel
+    match /operators/{id} {
+      allow read, write: if request.auth != null;
+    }
+
+    // Clinical interventions list
+    match /system_interventions/{id} {
+      allow read, write: if request.auth != null;
+    }
+    
+    // Fire Operations
+    match /fire_records/{id} {
+     allow read, write: if request.auth != null;
+    }
+
+    // Call Counter
+    match /call_counter/{id} {
+      allow read, write: if request.auth != null;
+    }
+
+    // Trauma & Medical Records
+    match /trauma_records/{id} {
+      allow read, write: if request.auth != null;
+    }
+
+    match /medical_records/{id} {
+      allow read, write: if request.auth != null;
+    }
+
+    // User profiles — each user can only read their own role document
+    match /users/{userId} {
+      allow read: if request.auth != null && request.auth.uid == userId;
+    }
+
+    match /other_inquiries/{id} {
+      allow read, write: if request.auth != null;
+    }
+
+    match /standby_records/{id} {
+      allow read, write: if request.auth != null;
+   }
+
+   match /other_inquiries/{id} {
+      allow read, write: if request.auth != null;
+   }
+  }
+}

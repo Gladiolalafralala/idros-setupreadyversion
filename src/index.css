@@ -1,0 +1,30 @@
+@import "tailwindcss";
+
+@theme {
+  --color-navy-900: #0a192f;
+  --color-navy-800: #0D1117;
+  --color-gold-500: #f4b400;
+  --color-red-500: #DA3633;
+  --color-blue-500: #1a73e8;
+  --color-orange-500: #f57c00;
+  --color-emerald-500: #10b981;
+}
+
+@layer base {
+  body {
+    @apply bg-navy-900 text-white font-sans antialiased;
+  }
+}
+
+@keyframes pulse-red {
+  0%, 100% { background-color: rgba(218, 54, 51, 0.1); }
+  50% { background-color: rgba(218, 54, 51, 0.4); }
+}
+
+.animate-pulse-red {
+  animation: pulse-red 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.custom-scrollbar::-webkit-scrollbar { width: 4px; }
+.custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+.custom-scrollbar::-webkit-scrollbar-thumb { background: #1c222d; border-radius: 10px; }
