@@ -1,0 +1,2 @@
+# idros-setupreadyversion
+setup-ready
